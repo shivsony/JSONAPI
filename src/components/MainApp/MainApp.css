@@ -1,5 +1,11 @@
 .wrapper {
   width: 60%;
-  height: 500px;
   background: paleturquoise;
   margin: 0 auto; }
+  .wrapper .header {
+    background: #5C5458;
+    color: #D3E0E5;
+    width: 100%;
+    font-family: "bello-pro-1", "bello-pro-2", sans-serif;
+    font-size: 2rem;
+    font-weight: 1200; }

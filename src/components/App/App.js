@@ -9,13 +9,24 @@ import {
 import './App.css';
 import MainApp from '../MainApp/MainApp';
 
-const array = [1,2,3];
-
+const streams = [
+  "ESL_SC2",
+  "OgamingSC2",
+  "cretetion",
+  "freecodecamp",
+  "storbeck",
+  "habathcx",
+  "RobotCaleb",
+  "noobs2ninjas"
+];
 
 class App extends Component {
   constructor(props){
     super(props);
     this.click = this.click.bind(this);
+  }
+  componentWillMount(){
+    this.props.requestApiData();
   }
   componentDidMount(){
     this.props.requestApiData();
@@ -27,9 +38,14 @@ class App extends Component {
     }
   }
   render() {
+    var data = this.props.status
     return (
       <div className="App">
-        <MainApp click={this.click} array={array}/>
+        <MainApp
+            click={this.click}
+            array={streams}
+            image={this.props.status && data.stream.channel.logo}
+        />
       </div>
     );
   }

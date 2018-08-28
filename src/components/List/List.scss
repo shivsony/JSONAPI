@@ -1,0 +1,17 @@
+.wrapper-items {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  .item-list-logo {
+    width: 25%;
+
+    .item-list-logo-img {
+        border-radius: 100%;
+        width: 45px;
+        height: 45px;
+        align-self: center;
+    }
+
+  }
+}

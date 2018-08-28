@@ -7,7 +7,7 @@ const initialState = {
     app: true,
     onLine: false,
     offLine: false,
-    status: {}
+    status: null
 }
 
 function JsonReducer(state=initialState,action){

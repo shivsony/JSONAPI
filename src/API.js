@@ -1,10 +1,7 @@
 export const fetchData = async () => {
   try {
-    const response = await fetch("https://api.twitch.tv/kraken/streams/freecodecamp?callback=?",function(data) {
-      console.log(data);
-    });
+    const response = await fetch("https://wind-bow.glitch.me/twitch-api/streams/ESL_SC2");
      const data = await response.json();
-     console.log(data);
      return data;
   }
   catch(e) {

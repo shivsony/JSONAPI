@@ -1,15 +1,17 @@
 import React from 'react';
 import './MainApp.css';
+import List from '../List/List';;
 class MainApp extends React.Component {
     render(){
         return (
             <div className="wrapper">
+              <header className="header">
+                <h1>TWITCH STREAMERS</h1>
                 <button onClick={this.props.click}>all</button>
                 <button>OnLine</button>
                 <button>OffLine</button>
-                {
-                    this.props.array.map( (item,i) => (<li key={i}>{item}</li>) )
-                }
+              </header>
+              < List logo={this.props.image} game={'new game'}/>
             </div>
         )
     }
