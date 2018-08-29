@@ -26,14 +26,12 @@ class App extends Component {
     this.click = this.click.bind(this);
   }
   componentWillMount(){
-    this.props.requestApiData();
-  }
-  componentDidMount(){
-    this.props.requestApiData();
+    this.props.requestApiData('shiv');
   }
   click() {
     this.props.onlineSite();
     if(this.props.app){
+      this.props.requestApiData();
       console.log('all');
     }
   }
@@ -45,6 +43,8 @@ class App extends Component {
             click={this.click}
             array={streams}
             image={this.props.status && data.stream.channel.logo}
+            game={this.props.status && data.stream.game}
+            details={this.props.status && data.stream.channel.status}
         />
       </div>
     );
@@ -57,6 +57,7 @@ function mapStateToProps(state){
     onLine: state.onLine,
     offLine: state.offLine,
     status: state.status,
+    dataArray: state.dataArray,
   }
 }
 

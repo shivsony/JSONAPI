@@ -10,7 +10,7 @@ function onlineSite() {
     }
 }
 
-function requestApiData() {
+function requestApiData(shiv) {
   return {
     type: REQUESTED
   }

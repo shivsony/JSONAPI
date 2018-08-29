@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './List.css';
 
 class List extends React.Component {
@@ -9,17 +10,24 @@ class List extends React.Component {
           <img className="item-list-logo-img" src={this.props.logo} alt="logo"/>
         </div>
         <div className="item-list-channel">
-          <p> <a href="#">link</a> </p>
+          <p> <a href="https://www.twitch.tv/esl_sc2">{this.props.channel}</a> </p>
         </div>
         <div className="item-list-game">
-          <p>game</p>
+          <p>{this.props.game}</p>
         </div>
         <div className="item-list-details">
-          <p>details</p>
+          <p>{this.props.details}</p>
         </div>
       </div>
     )
   }
+}
+
+List.propTypes = {
+  logo: PropTypes.string,
+  channel: PropTypes.string,
+  game: PropTypes.string,
+  details: PropTypes.string
 }
 
 export default List

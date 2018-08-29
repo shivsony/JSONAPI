@@ -8,10 +8,19 @@ class MainApp extends React.Component {
               <header className="header">
                 <h1>TWITCH STREAMERS</h1>
                 <button onClick={this.props.click}>all</button>
-                <button>OnLine</button>
-                <button>OffLine</button>
+                <button onClick={this.props.click}>OnLine</button>
+                <button onClick={this.props.click}>OffLine</button>
               </header>
-              < List logo={this.props.image} game={'new game'}/>
+              { this.props.array.map( (items,i) =>  (
+                < List
+                  logo={this.props.image}
+                  game={this.props.game}
+                  channel={items}
+                  details={this.props.details}
+                  key={i}
+                />
+              )
+            )}
             </div>
         )
     }

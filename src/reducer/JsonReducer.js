@@ -7,7 +7,8 @@ const initialState = {
     app: true,
     onLine: false,
     offLine: false,
-    status: null
+    status: null,
+    dataArray: []
 }
 
 function JsonReducer(state=initialState,action){
@@ -20,7 +21,8 @@ function JsonReducer(state=initialState,action){
             return state
         case RECIEVED:
             return Object.assign({},state,{
-              status: action.payload
+              status: action.payload,
+              dataArray: [...state.dataArray,action.payload]
             });
         default:
             return state;

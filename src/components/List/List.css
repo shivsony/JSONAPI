@@ -1,5 +1,6 @@
 .wrapper-items {
   width: 100%;
+  border: 2px solid #fff;
   display: flex;
   justify-content: space-around; }
   .wrapper-items .item-list-logo {
