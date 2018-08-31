@@ -1,12 +1,26 @@
 import {
-    ONLINE,
+    ON_LINE,
+    OFF_LINE,
+    ALL,
     RECIEVED,
     REQUESTED
 } from '../reducer/JsonReducer';
 
 function onlineSite() {
     return {
-        type: ONLINE
+        type: ON_LINE
+    }
+}
+
+function offlineSite() {
+    return {
+        type: OFF_LINE
+    }
+}
+
+function allSite() {
+    return {
+        type: ALL
     }
 }
 
@@ -24,6 +38,8 @@ function receiveApiData(data) {
 }
 export {
     onlineSite,
+    offlineSite,
+    allSite,
     receiveApiData,
     requestApiData
 }

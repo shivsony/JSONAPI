@@ -2,16 +2,34 @@
   width: 100%;
   border: 2px solid #fff;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   .item-list-logo {
-    width: 25%;
-
+    width: 10%;
+    text-align: center;
     .item-list-logo-img {
         border-radius: 100%;
         width: 45px;
         height: 45px;
-        align-self: center;
     }
+  }
+
+  .item-list-channel {
+    width: 15%;
+    a {
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+  .item-list-game {
+    width: 15%;
+  }
+  .item-list-details {
+    width: 60%
+  }
+  p {
+    font-size: 0.8rem;
   }
 }

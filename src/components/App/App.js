@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   onlineSite,
+  offlineSite,
+  allSite,
   requestApiData,
   receiveApiData
 } from '../../actions/action';
@@ -23,28 +25,36 @@ const streams = [
 class App extends Component {
   constructor(props){
     super(props);
-    this.click = this.click.bind(this);
+    this.clickOnLine = this.clickOnLine.bind(this);
+    this.clickOffLine = this.clickOffLine.bind(this);
+    this.clickAll = this.clickAll.bind(this);
   }
   componentWillMount(){
     this.props.requestApiData('shiv');
   }
-  click() {
+  clickOnLine() {
     this.props.onlineSite();
-    if(this.props.app){
-      this.props.requestApiData();
-      console.log('all');
-    }
   }
+  clickOffLine() {
+    this.props.offlineSite();
+  }
+  clickAll() {
+    this.props.allSite();
+  }
+
   render() {
     var data = this.props.status
     return (
       <div className="App">
         <MainApp
-            click={this.click}
-            array={streams}
-            image={this.props.status && data.stream.channel.logo}
-            game={this.props.status && data.stream.game}
-            details={this.props.status && data.stream.channel.status}
+            clickOnLine={this.clickOnLine}
+            clickOffLine={this.clickOffLine}
+            clickAll={this.clickAll}
+            array = {streams}
+            data = {data}
+            all={this.props.all}
+            offLine={this.props.offLine}
+            onLine = {this.props.onLine}
         />
       </div>
     );
@@ -53,17 +63,18 @@ class App extends Component {
 
 function mapStateToProps(state){
   return {
-    app: state.app,
+    all: state.all,
     onLine: state.onLine,
     offLine: state.offLine,
     status: state.status,
-    dataArray: state.dataArray,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     onlineSite: bindActionCreators(onlineSite,dispatch),
+    offlineSite: bindActionCreators(offlineSite, dispatch),
+    allSite: bindActionCreators(allSite, dispatch),
     requestApiData: bindActionCreators(requestApiData, dispatch),
     receiveApiData: bindActionCreators(receiveApiData, dispatch)
   }

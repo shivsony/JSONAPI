@@ -10,7 +10,7 @@ class List extends React.Component {
           <img className="item-list-logo-img" src={this.props.logo} alt="logo"/>
         </div>
         <div className="item-list-channel">
-          <p> <a href="https://www.twitch.tv/esl_sc2">{this.props.channel}</a> </p>
+          <p> <a href={this.props.url}>{this.props.channel}</a> </p>
         </div>
         <div className="item-list-game">
           <p>{this.props.game}</p>

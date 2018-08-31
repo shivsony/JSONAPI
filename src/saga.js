@@ -1,11 +1,8 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import {
-    ONLINE,
-    RECIEVED,
     REQUESTED
 } from './reducer/JsonReducer';
 import {
-  onlineSite,
   requestApiData,
   receiveApiData
 } from './actions/action';
@@ -21,7 +18,6 @@ function* getApiData(action) {
         console.log('loading');
       }
       yield put(receiveApiData(data));
-
    } catch (e) {
       //yield put({type: "USER_FETCH_FAILED", message: e.message});
      console.log(e);

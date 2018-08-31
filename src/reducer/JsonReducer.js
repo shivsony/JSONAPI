@@ -1,28 +1,42 @@
 
 
-const ONLINE = 'ONLINE';
+const ON_LINE = 'ON_LINE';
+const OFF_LINE = 'OFF_LINE'
+const ALL = 'ALL'
 const REQUESTED = 'REQUESTED';
 const RECIEVED = 'RECIEVED';
 const initialState = {
-    app: true,
+    all: true,
     onLine: false,
     offLine: false,
     status: null,
-    dataArray: []
 }
 
 function JsonReducer(state=initialState,action){
     switch(action.type){
-        case ONLINE:
+        case ON_LINE:
             return Object.assign({}, state , {
-                app: !state.app
+                onLine: true,
+                offLine: false,
+                all: false
+            });
+        case OFF_LINE:
+            return Object.assign({}, state , {
+                onLine: false,
+                offLine: true,
+                all: false
+            });
+        case ALL:
+            return Object.assign({}, state , {
+                onLine: false,
+                offLine: false,
+                all: true
             });
         case REQUESTED:
             return state
         case RECIEVED:
             return Object.assign({},state,{
               status: action.payload,
-              dataArray: [...state.dataArray,action.payload]
             });
         default:
             return state;
@@ -32,7 +46,9 @@ function JsonReducer(state=initialState,action){
 export default JsonReducer
 
 export {
-    ONLINE,
+    ON_LINE,
+    OFF_LINE,
+    ALL,
     RECIEVED,
     REQUESTED
 }
